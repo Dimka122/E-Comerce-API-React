@@ -173,6 +173,7 @@ const Profile: React.FC = () => {
                 fullWidth
                 label="Имя"
                 name="firstName"
+                autoComplete="given-name"
                 value={formData.firstName}
                 onChange={handleChange}
                 required
@@ -183,6 +184,7 @@ const Profile: React.FC = () => {
                 fullWidth
                 label="Фамилия"
                 name="lastName"
+                autoComplete="family-name"
                 value={formData.lastName}
                 onChange={handleChange}
                 required
@@ -194,6 +196,7 @@ const Profile: React.FC = () => {
                 label="Email"
                 name="email"
                 type="email"
+                autoComplete="email"
                 value={formData.email}
                 onChange={handleChange}
                 disabled
@@ -224,6 +227,7 @@ const Profile: React.FC = () => {
                 label="Текущий пароль"
                 name="currentPassword"
                 type="password"
+                autoComplete="current-password"
                 value={formData.currentPassword}
                 onChange={handleChange}
                 required
@@ -235,6 +239,7 @@ const Profile: React.FC = () => {
                 label="Новый пароль"
                 name="newPassword"
                 type="password"
+                autoComplete="new-password"
                 value={formData.newPassword}
                 onChange={handleChange}
                 required
@@ -246,6 +251,7 @@ const Profile: React.FC = () => {
                 label="Подтвердите новый пароль"
                 name="confirmPassword"
                 type="password"
+                autoComplete="new-password"
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 required

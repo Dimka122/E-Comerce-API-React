@@ -70,6 +70,7 @@ const Login: React.FC = () => {
               label="Email"
               name="email"
               type="email"
+              autoComplete="email"
               value={formData.email}
               onChange={handleChange}
               required
@@ -81,6 +82,7 @@ const Login: React.FC = () => {
               label="Пароль"
               name="password"
               type="password"
+              autoComplete="current-password"
               value={formData.password}
               onChange={handleChange}
               required

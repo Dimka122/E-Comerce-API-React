@@ -51,15 +51,22 @@ const Register: React.FC = () => {
       return;
     }
 
+    // Enforce at least one uppercase letter (matches backend policy)
+    if (!/[A-Z]/.test(formData.password)) {
+      setError("Пароль должен содержать хотя бы одну заглавную букву (A-Z)");
+      return;
+    }
+
     try {
       setLoading(true);
       setError(null);
-      await register({
-        email: formData.email,
-        password: formData.password,
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-      });
+        await register({
+          email: formData.email,
+          password: formData.password,
+          confirmPassword: formData.confirmPassword,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+        });
       navigate('/');
     } catch (err: any) {
       setError(err.response?.data?.message || 'Ошибка регистрации. Попробуйте снова.');
@@ -88,6 +95,7 @@ const Register: React.FC = () => {
                 fullWidth
                 label="Имя"
                 name="firstName"
+                autoComplete="given-name"
                 value={formData.firstName}
                 onChange={handleChange}
                 required
@@ -96,6 +104,7 @@ const Register: React.FC = () => {
                 fullWidth
                 label="Фамилия"
                 name="lastName"
+                autoComplete="family-name"
                 value={formData.lastName}
                 onChange={handleChange}
                 required
@@ -107,6 +116,7 @@ const Register: React.FC = () => {
               label="Email"
               name="email"
               type="email"
+              autoComplete="email"
               value={formData.email}
               onChange={handleChange}
               required
@@ -118,10 +128,12 @@ const Register: React.FC = () => {
               label="Пароль"
               name="password"
               type="password"
+              autoComplete="new-password"
               value={formData.password}
               onChange={handleChange}
               required
               sx={{ mt: 3 }}
+              helperText="Минимум 6 символов и хотя бы одна заглавная буква"
             />
 
             <TextField
@@ -129,6 +141,7 @@ const Register: React.FC = () => {
               label="Подтвердите пароль"
               name="confirmPassword"
               type="password"
+              autoComplete="new-password"
               value={formData.confirmPassword}
               onChange={handleChange}
               required

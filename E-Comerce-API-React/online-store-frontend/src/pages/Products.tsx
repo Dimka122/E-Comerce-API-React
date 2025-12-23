@@ -47,21 +47,29 @@ const Products: React.FC = () => {
         const categoriesDataRaw: any = await categoriesApi.getCategories();
         const resolvedCategories: Category[] = Array.isArray(categoriesDataRaw)
           ? categoriesDataRaw
-          : (Array.isArray(categoriesDataRaw?.items)
-              ? categoriesDataRaw.items
-              : (Array.isArray(categoriesDataRaw?.data) ? categoriesDataRaw.data : []));
+          : (Array.isArray(categoriesDataRaw?.data) ? categoriesDataRaw.data : []);
         setCategories(resolvedCategories);
 
         // Fetch products
-        const response = await productsApi.getProducts(
+        const productsDataRaw: any = await productsApi.getProducts(
           currentPage,
           pageSize,
           selectedCategory || undefined,
           searchTerm || undefined
         );
-        
-        setProducts(response.items || response);
-        setTotalPages(response.totalPages || Math.ceil(response.length / pageSize));
+
+        const pd = productsDataRaw?.data;
+        const resolvedProducts: Product[] = Array.isArray(productsDataRaw)
+          ? productsDataRaw
+          : (Array.isArray(pd?.products)
+              ? pd.products
+              : (Array.isArray(pd?.data) ? pd.data : (Array.isArray(productsDataRaw?.items) ? productsDataRaw.items : [])));
+
+        setProducts(resolvedProducts);
+        const totalPagesComputed = typeof pd?.totalPages === 'number'
+          ? pd.totalPages
+          : (typeof productsDataRaw?.totalPages === 'number' ? productsDataRaw.totalPages : Math.max(1, Math.ceil(resolvedProducts.length / pageSize)));
+        setTotalPages(totalPagesComputed);
       } catch (err) {
         setError('Не удалось загрузить товары');
         console.error('Error fetching data:', err);
