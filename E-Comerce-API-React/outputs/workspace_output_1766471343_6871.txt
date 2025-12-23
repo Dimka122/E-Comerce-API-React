@@ -1,0 +1,12 @@
+total 36
+drwxr-xr-x 2 root root  179 Dec 23 06:28 .
+drwxr-xr-x 5 root root  188 Dec 23 06:28 ..
+-rw-r--r-- 1 root root  564 Dec 23 06:28 App.css
+-rw-r--r-- 1 root root  273 Dec 23 06:28 App.test.tsx
+-rw-r--r-- 1 root root  556 Dec 23 06:28 App.tsx
+-rw-r--r-- 1 root root  366 Dec 23 06:28 index.css
+-rw-r--r-- 1 root root  554 Dec 23 06:28 index.tsx
+-rw-r--r-- 1 root root 2632 Dec 23 06:28 logo.svg
+-rw-r--r-- 1 root root   40 Dec 23 06:28 react-app-env.d.ts
+-rw-r--r-- 1 root root  425 Dec 23 06:28 reportWebVitals.ts
+-rw-r--r-- 1 root root  241 Dec 23 06:28 setupTests.ts

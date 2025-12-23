@@ -1,0 +1,10 @@
+ERROR in src/pages/Products.tsx:169:11
+TS2304: Cannot find name 'Grid'.
+    167 |             </Button>
+    168 |           </Grid>
+  > 169 |         </Grid>
+        |           ^^^^
+    170 |       </Box>
+    171 |
+    172 |       {error && (
+

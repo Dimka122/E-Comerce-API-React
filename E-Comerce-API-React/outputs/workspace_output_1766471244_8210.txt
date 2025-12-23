@@ -1,0 +1,8 @@
+total 28
+drwxr-xr-x  5 root root   109 Dec 23 06:27 .
+drwxr-xr-x  4 root root    75 Dec 23 06:27 ..
+drwxr-xr-x  8 root root  4096 Dec 23 06:27 .git
+drwxr-xr-x  2 root root    31 Dec 23 06:27 .github
+-rw-r--r--  1 root root  7370 Dec 23 06:27 .gitignore
+-rw-r--r--  1 root root 11357 Dec 23 06:27 LICENSE
+drwxr-xr-x 14 root root  4096 Dec 23 06:27 shopAPIshop

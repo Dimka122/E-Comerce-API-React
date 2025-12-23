@@ -1,0 +1,30 @@
+using ECommerceShop.DTOs;
+using ECommerceShop.Data;
+using ECommerceShop.Models;
+using ECommerceShop.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq.Dynamic.Core;
+
+namespace ECommerceShop.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProductsController : ControllerBase
+    {
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ILogger<ProductsController> _logger;
+
+        public ProductsController(
+            ApplicationDbContext context,
+            UserManager<ApplicationUser> userManager,
+            ILogger<ProductsController> logger)
+        {
+            _context = context;
+            _userManager = userManager;
+            _logger = logger;
+        }
+

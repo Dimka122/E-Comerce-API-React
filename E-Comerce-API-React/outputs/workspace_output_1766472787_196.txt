@@ -1,0 +1,51 @@
+        Товары
+      </Typography>
+
+      {/* Search and Filter */}
+      <Box component="form" onSubmit={handleSearch} sx={{ mb: 4 }}>
+        <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap", alignItems: "center" }}>
+          
+            <TextField
+              fullWidth
+              placeholder="Поиск товаров..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              InputProps={{
+                startAdornment: <Search sx={{ mr: 1 }} />,
+              }}
+            />
+          
+          
+            <FormControl fullWidth>
+              <InputLabel>Категория</InputLabel>
+              <Select
+                value={selectedCategory}
+                onChange={handleCategoryChange}
+                label="Категория"
+              >
+                <MenuItem value="">Все категории</MenuItem>
+                {categories.map((category) => (
+                  <MenuItem key={category.id} value={category.id}>
+                    {category.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          
+          
+            <Button type="submit" variant="contained" fullWidth>
+              Поиск
+            </Button>
+          
+        
+      </Box>
+
+      {error && (
+        <Alert severity="error" sx={{ mb: 3 }}>
+          {error}
+        </Alert>
+      )}
+
+      {products.length === 0 ? (
+        <Box textAlign="center" py={4}>
+          <Typography color="text.secondary">

@@ -1,0 +1,60 @@
+OnlineStoreShop/
+├── LICENSE
+└── shopAPIshop
+    ├── Areas
+    │   └── Admin
+    ├── Controllers
+    │   ├── AdminController.cs
+    │   ├── AuthController.cs
+    │   ├── CategoriesController.cs
+    │   ├── HomeController.cs
+    │   ├── OrderController.cs
+    │   ├── OrdersController.cs
+    │   ├── ProductsController.cs
+    │   ├── ReviewsController.cs
+    │   └── ShoppingCartController.cs
+    ├── DTOs
+    │   ├── AuthDTOs.cs
+    │   ├── OrderDTOs.cs
+    │   ├── ProductDTOs.cs
+    │   └── ShoppingCartDTOs.cs
+    ├── Data
+    │   └── ApplicationDbContext.cs
+    ├── Dockerfile
+    ├── ECommerceShop.Tests
+    │   ├── Controllers
+    │   └── ECommerceShop.Tests.csproj
+    ├── ECommerceShop.csproj
+    ├── ECommerceShop.sln
+    ├── Middleware
+    │   ├── GlobalExceptionHandlingMiddleware.cs
+    │   └── RequestLoggingMiddleware.cs
+    ├── Migrations
+    │   ├── 20251217053031_init.Designer.cs
+    │   ├── 20251217053031_init.cs
+    │   └── ApplicationDbContextModelSnapshot.cs
+    ├── Models
+    │   ├── ApplicationUser.cs
+    │   ├── CartItem.cs
+    │   ├── Category.cs
+    │   ├── Order.cs
+    │   ├── OrderItem.cs
+    │   ├── Product.cs
+    │   ├── ProductReview.cs
+    │   ├── ShoppingCart.cs
+    │   └── ViewModels
+    ├── Program.cs
+    ├── Properties
+    │   └── launchSettings.json
+    ├── Services
+    │   └── JwtService.cs
+    ├── Views
+    │   ├── Home
+    │   └── Shared
+    ├── appsettings.json
+    ├── docker-compose.yml
+    ├── todo.md
+    └── wwwroot
+        └── index.html
+
+19 directories, 39 files

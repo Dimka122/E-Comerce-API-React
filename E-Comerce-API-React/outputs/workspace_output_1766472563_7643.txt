@@ -1,0 +1,10 @@
+    Type '{ children: Element; item: true; xs: number; md: number; }' is not assignable to type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+      Property 'item' does not exist on type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+    163 |             </FormControl>
+    164 |           </Grid>
+  > 165 |           <Grid item xs={12} md={2}>
+        |           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    166 |             <Button type="submit" variant="contained" fullWidth>
+    167 |               Поиск
+    168 |             </Button>
+

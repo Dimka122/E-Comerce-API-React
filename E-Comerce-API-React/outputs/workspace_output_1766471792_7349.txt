@@ -1,0 +1,20 @@
+ERROR in src/pages/Register.tsx:106:17
+TS2304: Cannot find name 'Grid'.
+    104 |                   required
+    105 |                 />
+  > 106 |               </Grid>
+        |                 ^^^^
+    107 |             </Grid>
+    108 |
+    109 |             <TextField
+
+ERROR in src/pages/Register.tsx:107:15
+TS2304: Cannot find name 'Grid'.
+    105 |                 />
+    106 |               </Grid>
+  > 107 |             </Grid>
+        |               ^^^^
+    108 |
+    109 |             <TextField
+    110 |               fullWidth
+

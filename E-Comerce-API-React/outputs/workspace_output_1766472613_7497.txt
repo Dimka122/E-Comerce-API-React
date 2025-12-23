@@ -1,0 +1,9 @@
+5:  Grid,
+136:        <Grid container spacing={2} alignItems="center">
+137:          <Grid item xs={12} md={6}>
+147:          </Grid>
+148:          <Grid item xs={12} md={4}>
+164:          </Grid>
+165:          <Grid item xs={12} md={2}>
+169:          </Grid>
+170:        </Grid>

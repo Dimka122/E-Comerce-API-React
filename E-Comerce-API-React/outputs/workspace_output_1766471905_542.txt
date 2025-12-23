@@ -1,0 +1,20 @@
+ERROR in src/pages/Profile.tsx:11:3
+TS2724: '"@mui/material"' has no exported member named 'Grid2'. Did you mean 'Grid'?
+     9 |   Alert,
+    10 |   CircularProgress,
+  > 11 |   Grid2 as Grid,
+       |   ^^^^^
+    12 |   Avatar,
+    13 |   Divider,
+    14 | } from '@mui/material';
+
+ERROR in src/pages/Register.tsx:12:3
+TS2724: '"@mui/material"' has no exported member named 'Grid2'. Did you mean 'Grid'?
+    10 |   CircularProgress,
+    11 |   Link as MuiLink,
+  > 12 |   Grid2 as Grid,
+       |   ^^^^^
+    13 | } from '@mui/material';
+    14 | import { Link as RouterLink, useNavigate } from 'react-router-dom';
+    15 | import { useAuth } from '../contexts/AuthContext';
+

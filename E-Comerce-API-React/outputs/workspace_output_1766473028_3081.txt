@@ -1,0 +1,10 @@
+  Line 21:24:  'Search' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/Profile.tsx
+  Line 11:3:  'Grid' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/Register.tsx
+  Line 12:3:  'Grid' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.

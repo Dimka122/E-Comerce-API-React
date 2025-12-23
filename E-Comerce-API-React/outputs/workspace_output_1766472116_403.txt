@@ -1,0 +1,10 @@
+    Type '{ children: Element; item: true; key: number; xs: number; sm: number; md: number; lg: number; }' is not assignable to type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+      Property 'item' does not exist on type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+    187 |           <Grid container spacing={4}>
+    188 |             {products.map((product) => (
+  > 189 |               <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+        |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    190 |                 <Card
+    191 |                   sx={{
+    192 |                     height: '100%',
+

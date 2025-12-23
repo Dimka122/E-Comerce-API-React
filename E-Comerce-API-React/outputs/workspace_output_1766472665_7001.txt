@@ -1,0 +1,16 @@
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} md={2}>
+            <Button type="submit" variant="contained" fullWidth>
+              Поиск
+            </Button>
+          </Grid>
+        </Grid>
+      </Box>
+
+      {error && (
+        <Alert severity="error" sx={{ mb: 3 }}>
+          {error}
+        </Alert>
