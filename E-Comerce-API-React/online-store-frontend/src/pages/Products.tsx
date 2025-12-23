@@ -44,8 +44,13 @@ const Products: React.FC = () => {
         setLoading(true);
         
         // Fetch categories
-        const categoriesData = await categoriesApi.getCategories();
-        setCategories(categoriesData);
+        const categoriesDataRaw: any = await categoriesApi.getCategories();
+        const resolvedCategories: Category[] = Array.isArray(categoriesDataRaw)
+          ? categoriesDataRaw
+          : (Array.isArray(categoriesDataRaw?.items)
+              ? categoriesDataRaw.items
+              : (Array.isArray(categoriesDataRaw?.data) ? categoriesDataRaw.data : []));
+        setCategories(resolvedCategories);
 
         // Fetch products
         const response = await productsApi.getProducts(
