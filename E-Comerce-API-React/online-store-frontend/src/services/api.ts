@@ -34,9 +34,15 @@ export const productsApi = {
     return response.data;
   },
   
-  getFeaturedProducts: async (): Promise<Product[]> => {
-    const response = await api.get('/products/featured');
-    return response.data;
+  getFeaturedProducts: async (count = 4): Promise<Product[]> => {
+    const params: any = { page: 1, pageSize: count, isFeatured: true };
+    const response = await api.get('/products', { params });
+    // Normalize different response shapes
+    const data = response.data;
+    if (Array.isArray(data)) return data as Product[];
+    if (Array.isArray(data?.products)) return data.products as Product[];
+    if (Array.isArray(data?.data)) return data.data as Product[];
+    return [];
   },
   
   createReview: async (productId: number, review: { rating: number; comment: string }) => {

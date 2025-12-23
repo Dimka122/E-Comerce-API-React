@@ -102,7 +102,11 @@ const ProductDetail: React.FC = () => {
   };
 
   const formatPrice = (price: number, salePrice?: number) => {
-    if (salePrice && salePrice < price) {
+    if (typeof price !== 'number' || Number.isNaN(price)) {
+      return <Typography variant="h6">Цена недоступна</Typography>;
+    }
+
+    if (typeof salePrice === 'number' && !Number.isNaN(salePrice) && salePrice < price) {
       return (
         <Box>
           <Typography variant="h6" color="text.secondary" sx={{ textDecoration: 'line-through' }}>
@@ -114,6 +118,7 @@ const ProductDetail: React.FC = () => {
         </Box>
       );
     }
+
     return <Typography variant="h4">${price.toFixed(2)}</Typography>;
   };
 
@@ -163,21 +168,21 @@ const ProductDetail: React.FC = () => {
           </Typography>
 
           <Box sx={{ mb: 2 }}>
-            <Rating value={product.averageRating} precision={0.1} readOnly />
+            <Rating value={product.averageRating ?? 0} precision={0.1} readOnly />
             <Typography variant="body2" color="text.secondary" sx={{ ml: 1 }}>
-              ({product.reviews.length} отзывов)
+              ({product.reviews?.length ?? 0} отзывов)
             </Typography>
           </Box>
 
           {formatPrice(product.price, product.salePrice)}
 
           <Typography variant="body1" sx={{ my: 3 }}>
-            {product.description}
+            {product.description || ''}
           </Typography>
 
           <Box sx={{ mb: 3 }}>
             <Typography variant="body2" color="text.secondary">
-              Категория: {product.category.name}
+              Категория: {product.category?.name || ''}
             </Typography>
             <Typography variant="body2" color="text.secondary">
               В наличии: {product.stockQuantity} шт.
@@ -258,13 +263,13 @@ const ProductDetail: React.FC = () => {
         )}
 
         {/* Reviews List */}
-        {product.reviews.length === 0 ? (
+        {(product.reviews?.length ?? 0) === 0 ? (
           <Typography color="text.secondary">
             Пока нет отзывов. Будьте первым!
           </Typography>
         ) : (
           <List>
-            {product.reviews.map((review) => (
+            {(product.reviews || []).map((review) => (
               <React.Fragment key={review.id}>
                 <ListItem alignItems="flex-start">
                   <ListItemText
