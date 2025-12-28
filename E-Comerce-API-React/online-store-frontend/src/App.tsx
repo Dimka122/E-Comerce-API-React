@@ -17,10 +17,10 @@ import ProtectedRoute from './components/ProtectedRoute';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1976d2',
+      main: '#054c93ff',
     },
     secondary: {
-      main: '#dc004e',
+      main: '#c30044ff',
     },
   },
 });
