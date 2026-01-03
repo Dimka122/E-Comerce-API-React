@@ -49,6 +49,37 @@ export const productsApi = {
     const response = await api.post(`/products/${productId}/reviews`, review);
     return response.data;
   }
+  ,
+  // Admin: create / update / delete products (requires auth)
+  createProduct: async (product: Partial<Product>) => {
+    const response = await api.post('/products', product);
+    return response.data as Product;
+  },
+
+  updateProduct: async (id: number, product: Partial<Product>) => {
+    const response = await api.put(`/products/${id}`, product);
+    return response.data as Product;
+  },
+
+  deleteProduct: async (id: number) => {
+    const response = await api.delete(`/products/${id}`);
+    return response.data;
+  }
+  ,
+  // Create/Update with image via FormData
+  createProductWithImage: async (formData: FormData) => {
+    const response = await api.post('/products', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    return response.data as Product;
+  },
+
+  updateProductWithImage: async (id: number, formData: FormData) => {
+    const response = await api.put(`/products/${id}`, formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    return response.data as Product;
+  }
 };
 
 export const categoriesApi = {

@@ -13,6 +13,10 @@ import Register from './pages/Register';
 import Profile from './pages/Profile';
 import Orders from './pages/Orders';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminRoute from './components/AdminRoute';
+import AdminProducts from './pages/AdminProducts';
+import AdminAddProduct from './pages/AdminAddProduct';
+import AdminEditProduct from './pages/AdminEditProduct';
 
 const theme = createTheme({
   palette: {
@@ -56,6 +60,30 @@ function App() {
                       <Orders />
                     </ProtectedRoute>
                   } 
+                />
+                <Route
+                  path="/admin/products"
+                  element={
+                    <AdminRoute>
+                      <AdminProducts />
+                    </AdminRoute>
+                  }
+                />
+                <Route
+                  path="/admin/products/add"
+                  element={
+                    <AdminRoute>
+                      <AdminAddProduct />
+                    </AdminRoute>
+                  }
+                />
+                <Route
+                  path="/admin/products/edit/:id"
+                  element={
+                    <AdminRoute>
+                      <AdminEditProduct />
+                    </AdminRoute>
+                  }
                 />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>

@@ -92,6 +92,10 @@ const Header: React.FC = () => {
             </Badge>
           </IconButton>
 
+          {user?.role === 'admin' && (
+            <Button color="inherit" onClick={() => navigate('/admin/products')}>Админ</Button>
+          )}
+
           {isAuthenticated ? (
             <>
               <IconButton
@@ -109,6 +113,12 @@ const Header: React.FC = () => {
                 onClose={handleMenuClose}
                 onClick={handleMenuClose}
               >
+                {user?.role === 'admin' && (
+                  <MenuItem onClick={() => { handleMenuClose(); navigate('/admin/products'); }}>
+                    <Person sx={{ mr: 1 }} />
+                    Админ
+                  </MenuItem>
+                )}
                 <MenuItem onClick={handleProfile}>
                   <Person sx={{ mr: 1 }} />
                   Профиль
